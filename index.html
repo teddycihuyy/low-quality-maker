@@ -2,43 +2,19 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LowQuality Maker</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>makin burik makin lucu njir</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{
-  min-height:100vh;background:#050505;
-  display:flex;align-items:center;justify-content:center;
-  padding:20px;color:#fff;position:relative;overflow:hidden;
-}
-body::before{
-  content:"";position:absolute;width:700px;height:700px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  top:-200px;left:50%;transform:translateX(-50%);filter:blur(30px);
-}
-.glass{
-  width:100%;max-width:400px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(30px) saturate(150%);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:28px;padding:24px;z-index:1;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.08);
-}
+body{min-height:100vh;background:#050505;display:flex;align-items:center;justify-content:center;padding:20px;color:#fff;position:relative;overflow:hidden}
+body::before{content:"";position:absolute;width:700px;height:700px;background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);top:-200px;left:50%;transform:translateX(-50%);filter:blur(30px)}
+.glass{width:100%;max-width:400px;background:rgba(255,255,255,0.05);backdrop-filter:blur(30px) saturate(150%);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.12);border-radius:28px;padding:24px;z-index:1;box-shadow:0 20px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.08)}
 .header{text-align:center;margin-bottom:22px}
-.light{
-  width:56px;height:56px;margin:0 auto 12px;background:#fff;border-radius:50%;
-  box-shadow:0 0 20px rgba(255,255,255,0.9),0 0 50px rgba(255,255,255,0.3);
-  display:grid;place-items:center;
-}
-.header h1{font-weight:600;letter-spacing:3px;font-size:14px}
-.header p{font-weight:200;letter-spacing:1.2px;font-size:10px;opacity:0.4;margin-top:4px;text-transform:uppercase}
-.upload{
-  border:1px solid rgba(255,255,255,0.12);
-  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
-  border-radius:18px;padding:22px;text-align:center;cursor:pointer;transition:0.3s;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-}
+.light{width:56px;height:56px;margin:0 auto 12px;background:#fff;border-radius:50%;box-shadow:0 0 20px rgba(255,255,255,0.9),0 0 50px rgba(255,255,255,0.3);display:grid;place-items:center}
+.header h1{font-weight:600;letter-spacing:1px;font-size:15px;text-transform:lowercase}
+.header p{font-weight:200;letter-spacing:1.2px;font-size:10px;opacity:0.4;margin-top:6px;text-transform:uppercase}
+.upload{border:1px solid rgba(255,255,255,0.12);background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));border-radius:18px;padding:22px;text-align:center;cursor:pointer;transition:0.3s;display:flex;flex-direction:column;align-items:center;gap:8px}
 .upload:hover{border-color:rgba(255,255,255,0.25);box-shadow:0 0 30px rgba(255,255,255,0.06)}
 .upload input{display:none}
 .upload b{font-weight:600;letter-spacing:0.5px;font-size:13px}
@@ -50,92 +26,73 @@ select{width:100%;background:#111;color:#fff;border:1px solid rgba(255,255,255,0
 .range-wrap{margin-top:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px}
 .range-wrap label{font-size:9px;letter-spacing:1.5px;opacity:0.4;text-transform:uppercase}
 input[type=range]{width:100%;accent-color:#fff;margin-top:8px}
-.btn-main{
-  width:100%;margin-top:18px;padding:14px;background:#fff;color:#000;border:none;border-radius:14px;
-  font-weight:600;letter-spacing:1px;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 0 25px rgba(255,255,255,0.4);cursor:pointer;transition:0.2s;
-}
+.btn-main{width:100%;margin-top:18px;padding:14px;background:#fff;color:#000;border:none;border-radius:14px;font-weight:600;letter-spacing:1px;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 0 25px rgba(255,255,255,0.4);cursor:pointer;transition:0.2s}
 .btn-main:active{transform:scale(0.97)}
 video{width:100%;margin-top:16px;border-radius:14px;background:#000;display:none;border:1px solid rgba(255,255,255,0.1)}
-.status{text-align:center;font-size:10px;letter-spacing:1px;margin-top:12px;opacity:0.5;font-weight:200}
-.dl{
-  display:none;text-align:center;margin-top:12px;padding:12px;background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;text-decoration:none;font-size:12px;
-  align-items:center;justify-content:center;gap:6px;
-}
-svg{stroke:#fff;fill:none}
-.light svg{stroke:#000}
+.status{text-align:center;font-size:10px;letter-spacing:1px;margin-top:12px;opacity:0.6;font-weight:300;min-height:14px}
+.dl{display:none;text-align:center;margin-top:12px;padding:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;text-decoration:none;font-size:12px;align-items:center;justify-content:center;gap:6px}
+.progress{height:2px;background:rgba(255,255,255,0.1);border-radius:10px;margin-top:10px;overflow:hidden;display:none}
+.progress span{display:block;height:100%;width:0%;background:#fff;box-shadow:0 0 10px #fff;transition:width 0.2s}
 </style>
 </head>
 <body>
 <div class="glass">
   <div class="header">
     <div class="light">
-      <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
     </div>
-    <h1>LOWQ STUDIO</h1>
-    <p>White Light Edition</p>
+    <h1>makin burik makin lucu njir</h1>
+    <p>burikin yuks</p>
   </div>
 
   <label class="upload" for="file">
-    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
     <b>DROP VIDEO HERE</b>
-    <small>tap to browse file</small>
+    <small>MP4 / MOV / WEBM - max 60s</small>
     <input type="file" id="file" accept="video/*">
   </label>
 
   <div class="row">
-    <div class="box">
-      <label>Resolution</label>
-      <select id="res">
-        <option value="144">144p • Max</option>
-        <option value="240" selected>240p • Meme</option>
-        <option value="360">360p • Low</option>
-      </select>
-    </div>
-    <div class="box">
-      <label>Frame Rate</label>
-      <select id="fps">
-        <option value="5">5 FPS</option>
-        <option value="10" selected>10 FPS</option>
-        <option value="15">15 FPS</option>
-      </select>
-    </div>
+    <div class="box"><label>Resolution</label><select id="res"><option value="144">144p • Max Burik</option><option value="240" selected>240p • Meme</option><option value="360">360p • Low</option><option value="480">480p</option></select></div>
+    <div class="box"><label>FPS</label><select id="fps"><option value="5">5 FPS • Patah</option><option value="10" selected>10 FPS • Vintage</option><option value="15">15 FPS</option><option value="24">24 FPS</option></select></div>
   </div>
 
   <div class="range-wrap">
-    <label>Intensity: <span id="qv" style="opacity:1;color:#fff">0.3</span></label>
+    <label>Burik Level: <span id="qv" style="opacity:1;color:#fff">0.3</span></label>
     <input type="range" id="q" min="0.1" max="1" step="0.1" value="0.3">
   </div>
 
   <button class="btn-main" id="go">
-    <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="1.8" style="stroke:#000"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="black"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     CONVERT TO LOW QUALITY
   </button>
 
-  <div class="status" id="st"></div>
+  <div class="progress" id="prog"><span id="bar"></span></div>
+  <div class="status" id="st">ready</div>
   <video id="prev" controls playsinline></video>
-  <a id="dl" class="dl">
-    <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Download Result
-  </a>
+  <a id="dl" class="dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Result</a>
 </div>
 
 <script>
-const file=document.getElementById('file'),prev=document.getElementById('prev'),res=document.getElementById('res'),fps=document.getElementById('fps'),q=document.getElementById('q'),qv=document.getElementById('qv'),st=document.getElementById('st');
+const file=document.getElementById('file'),prev=document.getElementById('prev'),res=document.getElementById('res'),fps=document.getElementById('fps'),q=document.getElementById('q'),qv=document.getElementById('qv'),st=document.getElementById('st'),prog=document.getElementById('prog'),bar=document.getElementById('bar');
 let vidFile;q.oninput=()=>qv.textContent=q.value;
-file.onchange=e=>{vidFile=e.target.files[0];if(vidFile){prev.src=URL.createObjectURL(vidFile);prev.style.display='block';st.textContent=vidFile.name}};
+file.onchange=e=>{vidFile=e.target.files[0];if(vidFile){prev.src=URL.createObjectURL(vidFile);prev.style.display='block';st.textContent=vidFile.name;}};
 document.getElementById('go').onclick=async()=>{
- if(!vidFile)return alert('Upload dulu!');
- st.textContent='processing...';
- const W=parseInt(res.value),FPS=parseInt(fps.value);
- const v=document.createElement('video');v.src=URL.createObjectURL(vidFile);v.muted=true;await v.play().catch(()=>{});await new Promise(r=>v.onloadedmetadata=r);
- const h=W*(v.videoHeight/v.videoWidth);const c=document.createElement('canvas');c.width=W;c.height=h;const ctx=c.getContext('2d');
- const stream=c.captureStream(FPS);const rec=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp8',videoBitsPerSecond:W*800});const chunks=[];rec.ondataavailable=e=>chunks.push(e.data);
- rec.onstop=()=>{const b=new Blob(chunks,{type:'video/webm'});const u=URL.createObjectURL(b);prev.src=u;prev.style.display='block';const d=document.getElementById('dl');d.href=u;d.download=`lowq-white-${W}p.webm`;d.style.display='flex';st.textContent=`DONE ${W}p ${FPS}fps`};
- rec.start();let last=0;
- function draw(now){if(v.ended||v.paused){rec.stop();return}if(now-last>=1000/FPS){ctx.imageSmoothingEnabled=false;ctx.drawImage(v,0,0,W,h);last=now}requestAnimationFrame(draw)}
- v.play();requestAnimationFrame(draw);
+ if(!vidFile)return alert('Upload video dulu!');
+ st.textContent='processing... 0%';prog.style.display='block';bar.style.width='0%';
+ const W=parseInt(res.value),FPS=parseInt(fps.value),intensity=parseFloat(q.value);
+ const v=document.createElement('video');v.src=URL.createObjectURL(vidFile);v.muted=true;v.playsInline=true;v.playbackRate=3.0;
+ await new Promise(r=>v.onloadedmetadata=r);
+ const h=Math.round(W*(v.videoHeight/v.videoWidth));
+ const c=document.createElement('canvas');c.width=W;c.height=h;const ctx=c.getContext('2d');
+ const bitrate=Math.floor(W*1500*intensity);
+ const stream=c.captureStream(FPS);
+ const rec=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp8',videoBitsPerSecond:bitrate});
+ const chunks=[];rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+ rec.onstop=()=>{const b=new Blob(chunks,{type:'video/webm'});const u=URL.createObjectURL(b);prev.src=u;prev.style.display='block';const d=document.getElementById('dl');d.href=u;d.download=`lowq-${W}p-${FPS}fps.webm`;d.style.display='flex';st.textContent=`DONE • ${W}p ${FPS}fps • ${(b.size/1024).toFixed(0)}KB`;bar.style.width='100%';};
+ rec.start(100);v.play();let last=0;
+ function draw(now){if(v.ended||v.paused){rec.stop();return}if(v.duration){const p=Math.floor(v.currentTime/v.duration*100);st.textContent=`processing... ${p}%`;bar.style.width=p+'%'}if(now-last>=1000/FPS){ctx.imageSmoothingEnabled=false;ctx.drawImage(v,0,0,W,h);last=now}requestAnimationFrame(draw);}
+ requestAnimationFrame(draw);
 };
 </script>
 </body>
